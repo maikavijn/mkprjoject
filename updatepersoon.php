@@ -13,11 +13,10 @@
     <?php 
     include 'dbconnection.php';
 
-    $query = $conn->prepare("SELECT FROM gebruikers (naam, adres, postcode, plaats, gebdatum, aanmelddatum) VALUES (?,?,?,?,?,?)");
+    $query = $conn->prepare("SELECT * FROM gebruikers WHERE persoon_id ");
     $query->execute();
     
-    while ($row = mysql_fetch_array ($query)) 
-  {
+    while ($row = mysqli_fetch_object($query)) {
       $naam = $row['naam'];
       $adres = $row['adres'];
       $postcode = $row['postcode'];
@@ -29,24 +28,20 @@
   <form class="form p-4" method="post">
 
   <label for="name">Naam:</label><br>
-  <input type="text" id="naam" name="naam"  value="<?php echo $id; ?>"><br><br>
+  <input type="text" id="naam" name="naam"  value="<?php echo $naam; ?>"><br><br>
 
   <label for="adres">Adres</label><br>
-  <input type="text" id="adres" name="adres"><br><br>
+  <input type="text" id="adres" name="adres" value="<?php echo $adres; ?>"><br><br>
 
   <label for="postcode">Postcode</label><br>
-  <input type="text" id="postcode" name="postcode"><br><br>
+  <input type="text" id="postcode" name="postcode" value="<?php echo $postcode; ?>"><br><br>
 
   <label for="plaats">Plaats</label><br>
-  <input type="text" id="plaats" name="plaats"><br><br>
+  <input type="text" id="plaats" name="plaats" value="<?php echo $plaats; ?>"><br><br>
 
   <label for="gebdatum">Geboorte Datum</label><br>
-  <input type="text" id="gebdatum" name="gebdatum" value="D-M-J"><br><br>
+  <input type="text" id="gebdatum" name="gebdatum" value="<?php echo $gebdatum; ?>"><br><br>
 
   <input type="submit" value="Submit" name="submit">
 </form> 
-
-    
-
-
-    </body>
+</body>
