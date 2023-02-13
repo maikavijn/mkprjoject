@@ -15,10 +15,12 @@ include 'dbconnection.php';
 ?>
 
 <form>
-    <label for="user"> Gebruikersnaam </label><br>
-  <input type="text" id="gebruikersnaam" name="user"><br>
+    <label for="name"> Naam </label><br>
+  <input type="text" id="inputname" name="user"><br>
   <label for="pass"> Wachtwoord </label><br>
-  <input type="text" id="wachtwoord" name="user">
+  <input type="password" id="wachtwoord" name="user">
+
+
 </form>
     
 </body>
