@@ -20,7 +20,7 @@ include 'dbconnection.php';
   <label for="pass"> Wachtwoord </label><br>
   <input type="password" id="wachtwoord" name="user">
 
-
+  <button type="button" href="check.php"> Log in </button>
 </form>
     
 </body>
