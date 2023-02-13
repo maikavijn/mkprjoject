@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form class="form" method="post">
+<form class="form p-4" method="post">
 
   <label for="name">Naam:</label><br>
   <input type="text" id="naam" name="naam"><br><br>
@@ -17,17 +17,36 @@
   <label for="adres">Adres</label><br>
   <input type="text" id="adres" name="adres"><br><br>
 
-  <label for="poscode">Postcode</label><br>
-  <input type="text" id="poscode" name="poscode"><br><br>
+  <label for="postcode">Postcode</label><br>
+  <input type="text" id="postcode" name="postcode"><br><br>
 
   <label for="plaats">Plaats</label><br>
   <input type="text" id="plaats" name="plaats"><br><br>
 
   <label for="gebdatum">Geboorte Datum</label><br>
-  <input type="text" id="gebdatum" name="gebdatum"><br><br>
+  <input type="text" id="gebdatum" name="gebdatum" value="D-M-J"><br><br>
 
-  <input type="submit" value="Submit">
+  <input type="submit" value="Submit" name="submit">
 </form> 
+<?php
+include 'dbconnection.php';
+
+if(isset($_POST['submit'])){
+
+$name=$_POST['naam'];
+$adres=$_POST['adres'];
+$postcode=$_POST['postcode'];
+$plaats=$_POST['plaats'];
+$gebdatum=$_POST['gebdatum'];
+$aanmelddatum = date("j-n-Y");
+
+$query = $conn->prepare("INSERT INTO gebruikers (naam, adres, postcode, plaats, gebdatum, aanmelddatum) VALUES (?,?,?,?,?,?)");
+$query->bind_param('ssssss',$name,$adres,$postcode,$plaats,$gebdatum,$aanmelddatum);
+$query->execute();
+$query->store_result();
+
+}
+?>
 
 </body>
 </html>
