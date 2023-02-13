@@ -1,12 +1,3 @@
-<?php
-include 'dbconnection.php';
-if (!$_SESSION['admin']['naam'] && !$_SESSION['admin']['wachtwoord']) {
-header("location: beheer.php");
-} else {
-include("createaccount.php");
-}
-?>
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,18 +12,6 @@ include("createaccount.php");
     </script>
     <title>Index</title>
 </head>
-
 <body>
-    <div class="container p-4">
-        <h1> MK PROJECT </h1>
-        <?php
-    include 'dbconnection.php';
-    ?>
-        <a href="createpersoon.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create
-            Person</a>
-        <a href="login.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Login</a>
-    </div>
-
+    <h1> IT works</h1>
 </body>
-
-</html>
