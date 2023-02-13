@@ -19,7 +19,7 @@
         <?php
     include 'dbconnection.php';
     ?>
-        <a href="createaccount.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create
+        <a href="createpersoon.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create
             Person</a>
         <a href="login.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Login</a>
     </div>
