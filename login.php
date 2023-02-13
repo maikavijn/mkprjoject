@@ -16,13 +16,13 @@
 </head>
 <body>
 
-<form class="login" action="check.php" method="post">
+<form class="login" method="post">
     
-  <label for="name"> Naam </label><br>
-  <input type="text" id="inputname" name="naam"><br>
+  <label for="naam"> Naam </label><br>
+  <input type="text" id="naam" name="inputnaam"><br>
 
-  <label for="pass"> Wachtwoord </label><br>
-  <input type="password" id="wachtwoord" name="wachtwoord"><br><br>
+  <label for="wachtwoord"> Wachtwoord </label><br>
+  <input type="password" id="wachtwoord" name="inputwachtwoord"><br><br>
 
   <input type="submit" name="login" value="Log in">
 </form>
