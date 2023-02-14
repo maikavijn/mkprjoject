@@ -58,6 +58,7 @@ if ($result->num_rows > 1) {
   while($row = $result->fetch_assoc()) {
     echo $row["persoon_id"]. " - Naam: " . $row["naam"]. " - Adres: " . $row["adres"]. " - Plaats: " . $row["plaats"]. " - Geboortedatum: " . $row["gebdatum"]. " - Aanmelddatum: " . $row["aanmelddatum"]. "<br><br>";
     echo '<td><a class="btn btn-primary active" href="updatepersoon.php?persoon_id=' . $row['persoon_id'] . '">Update persoon</a></td><br><br>';
+    echo '<td><a class="btn btn-primary active" href="verwijderpersoon.php?persoon_id=' . $row['persoon_id'] . '">Verwijder persoon</a></td><br><br>';
     }
 }
 $conn->close();
