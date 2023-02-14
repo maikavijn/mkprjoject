@@ -48,5 +48,7 @@ $query->store_result();
 }
 ?>
 
+<a href="overzichtpers.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true"> Terug naar overzicht </a>
+
 </body>
 </html>
