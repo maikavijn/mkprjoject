@@ -1,11 +1,25 @@
-<?php
+<?php 
+session_start();
 include 'dbconnection.php';
-if (!$_SESSION['admin']['naam'] && !$_SESSION['admin']['wachtwoord']) {
-header("location: beheer.php");
+if (isset($_POST['submit'])) { 
+    $password = md5($_POST['wachtwoord']);
+    $name = ($_POST['naam']);
+$check_q = mysqli_query($conn, "SELECT * FROM login WHERE naam='".$name."' AND wachtwoord='".$password."'AND admin = '1'") or die (mysqli_error($conn)); 
+if (mysqli_num_rows($check_q) == 0) { 
+$alert = 1;
 } else {
-include("createaccount.php");
+while ($beheer = mysqli_fetch_object($check_q)) {
+$_SESSION['admin']['login_id'] = $beheer->login_id; 
+$_SESSION['admin']['naam'] = $beheer->naam;
+$_SESSION['admin']['email'] = $beheer->email;
 }
-?>
+
+$_SESSION['admin']['naam'] = $_POST['naam']; 
+$_SESSION['admin']['wachtwoord'] = $_POST['wachtwoord']; 
+  
+Header("Location: beheer.php");
+exit;
+}} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +41,41 @@ include("createaccount.php");
         <h1> MK PROJECT </h1>
         <a href="createpersoon.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create
             Person</a>
-        <a href="login.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Login</a>
     </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-md-6 col-md-offset-4">
+                <h1 class="text-center login-title">Login voor beheer</h1>
+                <div class="account-wall">
+                    <form class="form-signin" method="POST">
+                        <input type="text" name="naam" class="form-control" placeholder="Gebruikersnaam" required
+                            autofocus>
+                        <input type="password" name="wachtwoord" class="form-control" placeholder="Wachtwoord" required>
+                        <button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">
+                            Login</button>
+                        <label class="checkbox pull-left">
+                        </label>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+   <?
+if ($alert == 1) {
+?>
+<div class="row">
+<div class="col-sm-8 col-md-6 col-md-offset-4">
+    <div class="alert alert-danger" role="alert">Uw gebruikersnaam of wachtwoord zijn niet correct.</div>
+    </div>
+    </div>
+<?
+}
+?>
+</div>
+
 
 </body>
 
