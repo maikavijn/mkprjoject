@@ -1,9 +1,9 @@
 <?php
 include 'dbconnection.php';
 if (!$_SESSION['admin']['naam'] && !$_SESSION['admin']['wachtwoord']) {
-header("location: createaccount.php");
+header("location: index.php");
 } else {
-include("createaccount.php");
+include("beheer.php");
 }
 ?>
 <!DOCTYPE html>

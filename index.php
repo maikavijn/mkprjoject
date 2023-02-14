@@ -12,13 +12,12 @@ while ($beheer = mysqli_fetch_object($check_q)) {
 $_SESSION['admin']['login_id'] = $beheer->login_id; 
 $_SESSION['admin']['naam'] = $beheer->naam;
 $_SESSION['admin']['admin'] = $beheer->admin;
-echo $beheer->admin;
 }
 
 $_SESSION['admin']['naam'] = $_POST['naam']; 
-$_SESSION['admin']['wachtwoord'] = $_POST['wachtwoord']; 
-  
-Header("Location: beheer.php");
+$_SESSION['admin']['wachtwoord'] = $_POST['wachtwoord'];  
+    
+Header("Location: beheer.php");  
 exit;
 }
 } 
