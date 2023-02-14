@@ -33,7 +33,6 @@
 include 'dbconnection.php';
 
 if(isset($_POST['submit'])){
-  echo "Persoon is toegevoegd";
 $name=$_POST['naam'];
 $adres=$_POST['adres'];
 $postcode=$_POST['postcode'];
@@ -45,6 +44,7 @@ $query = $conn->prepare("INSERT INTO gebruikers (naam, adres, postcode, plaats, 
 $query->bind_param('ssssss',$name,$adres,$postcode,$plaats,$gebdatum,$aanmelddatum);
 $query->execute();
 $query->store_result();
+echo "Persoon is toegevoegd";
 }
 ?>
 
