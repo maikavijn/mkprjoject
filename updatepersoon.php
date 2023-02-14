@@ -13,10 +13,11 @@
     <?php 
     include 'dbconnection.php';
 
-    $query = $conn->prepare("SELECT * FROM gebruikers WHERE persoon_id ");
-    $conn = $query->execute();
+    $query = "SELECT * FROM gebruikers WHERE persoon_id ";
+    $result = $conn->query($query);
+    // $row = $result->fetch_assoc();
     
-    while ($row = mysqli_fetch_object($conn)) {
+    while ($row = $result->fetch_assoc()) {
       $naam = $row['naam'];
       $adres = $row['adres'];
       $postcode = $row['postcode'];
@@ -24,6 +25,24 @@
       $gebdatum = $row['gebdatum'];
 
   }
+
+  
+if(isset($_POST['submit'])){
+    $name=$_POST['naam'];
+    $adres=$_POST['adres'];
+    $postcode=$_POST['postcode'];
+    $plaats=$_POST['plaats'];
+    $gebdatum=$_POST['gebdatum'];
+    $aanmelddatum = date("j-n-Y");
+    
+    $query = "UPDATE gebruikers set naam='$name', adres='$adres', postcode='$postcode', plaats='$plaats', gebdatum='$gebdatum', aanmelddatum";
+
+   if ($conn->query($query) === TRUE) {
+    echo "Records updated";
+   } else {
+    echo "Error: ".$query."<br>".$conn->error;
+   }
+}
   ?>
   <form class="form p-4" method="post">
 
