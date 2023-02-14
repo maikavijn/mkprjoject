@@ -16,10 +16,10 @@
 // $_SESSION['admin']['naam'] = $_POST['naam']; 
 // $_SESSION['admin']['wachtwoord'] = $_POST['wachtwoord']; 
   
-// Header("Location: index.php");
+// Header("Location: beheer.php");
 // exit;
 // }} 
-// ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
