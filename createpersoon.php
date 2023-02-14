@@ -28,11 +28,11 @@
 
   <input type="submit" value="Submit" name="submit">
 </form> 
+
 <?php
 include 'dbconnection.php';
 
 if(isset($_POST['submit'])){
-
 $name=$_POST['naam'];
 $adres=$_POST['adres'];
 $postcode=$_POST['postcode'];
@@ -44,9 +44,11 @@ $query = $conn->prepare("INSERT INTO gebruikers (naam, adres, postcode, plaats, 
 $query->bind_param('ssssss',$name,$adres,$postcode,$plaats,$gebdatum,$aanmelddatum);
 $query->execute();
 $query->store_result();
-
+echo "Persoon is toegevoegd";
 }
 ?>
+
+<a href="overzichtpers.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true"> Terug naar overzicht </a>
 
 </body>
 </html>

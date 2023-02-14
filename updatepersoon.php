@@ -14,9 +14,9 @@
     include 'dbconnection.php';
 
     $query = $conn->prepare("SELECT * FROM gebruikers WHERE persoon_id ");
-    $query->execute();
+    $conn = $query->execute();
     
-    while ($row = mysqli_fetch_object($query)) {
+    while ($row = mysqli_fetch_object($conn)) {
       $naam = $row['naam'];
       $adres = $row['adres'];
       $postcode = $row['postcode'];
