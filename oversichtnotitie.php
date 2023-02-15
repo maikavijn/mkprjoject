@@ -30,6 +30,8 @@ while($row = mysqli_fetch_array($result)) {
     <td><?php echo $row["persoon_id"]; ?></td>
     <td><?php echo $row["titel"]; ?></td>
     <td><?php echo $row["info"]; ?></td>
+    <td><a class="btn btn-primary active" href="updatenotitie.php?persoon_id=<?php echo $row['persoon_id'] ?>">Update notitie</a></td><br>
+    <td><a class="btn btn-primary active" href="verwijdernotitie.php?notitie_id=<?php echo $row['notitie_id'] ?>">Verwijder notitie</a></td>
 </tr>
 <?php
 $i++;
