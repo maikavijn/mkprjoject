@@ -3,12 +3,15 @@ session_start();
 include 'dbconnection.php';
 if (isset($_POST['submit'])) { 
     $password = md5($_POST['wachtwoord']);
-$check_q = mysqli_query($conn, "SELECT * FROM login WHERE naam='".addslashes($_POST['naam'])."' AND wachtwoord='".$password."' AND admin") or die (mysqli_error($conn)); 
+// $check_q = mysqli_query($conn, "SELECT * FROM login WHERE naam='".addslashes($_POST['naam'])."' AND wachtwoord='".$password."' AND admin") or die (mysqli_error($conn)); 
 
-if (mysqli_num_rows($check_q) == 0) { 
+$sql = "SELECT naam='".addslashes($_POST['naam'])."', wachtwoord='".$password."', admin FROM login";
+$result = $conn->query($sql);
+
+if ($result->num_rows == 0) { 
 $alert = 1;
 } else {
-while ($beheer = mysqli_fetch_object($check_q)) {
+while ($beheer = mysqli_fetch_object($result)) {
 $_SESSION['admin']['login_id'] = $beheer->login_id; 
 $_SESSION['admin']['naam'] = $beheer->naam;
 $_SESSION['admin']['admin'] = $beheer->admin;
@@ -16,8 +19,10 @@ $_SESSION['admin']['admin'] = $beheer->admin;
 
 $_SESSION['admin']['naam'] = $_POST['naam']; 
 $_SESSION['admin']['wachtwoord'] = $_POST['wachtwoord'];  
+$_SESSION['admin']['admin'] = $beheer->admin;  
     
-Header("Location: beheer.php");  
+Header("Location: beheer.php");   
+
 exit;
 }
 } 
