@@ -9,6 +9,9 @@ include("head.php");
 ?>
 <body>
     <h1> Overzicht Personen </h1>
+    <div class="pb-4">
+      <a href="createpersoon.php" class="btn btn-secondary active" role="button" aria-pressed="true"> Persoon toevoegen </a>
+    </div>
     <?php
   //   <table class="table">
   // <thead>
@@ -43,6 +46,7 @@ include("head.php");
 //   </tbody>
 // </table>
 ?>
+
     <?php 
     session_start();
     include("dbconnection.php");
@@ -53,15 +57,12 @@ $result = $conn->query($sql);
 if ($result->num_rows > 1) {
   while($row = $result->fetch_assoc()) {
     echo $row["persoon_id"]. " - Naam: " . $row["naam"]. " - Adres: " . $row["adres"]. " - Plaats: " . $row["plaats"]. " - Geboortedatum: " . $row["gebdatum"]. " - Aanmelddatum: " . $row["aanmelddatum"]. "<br><br>";
-    echo '<td><a class="btn btn-primary active" href="updatepersoon.php?persoon_id=' . $row['persoon_id'] . '">Update persoon</a></td><br><br>';
-    echo '<td><a class="btn btn-primary active" href="createnotitie.php?persoon_id=' . $row['persoon_id'] . '">Voeg notitie</a></td><br><br>';
-    echo '<td><a class="btn btn-primary active" href="verwijderpersoon.php?persoon_id=' . $row['persoon_id'] . '">Verwijder persoon</a></td><br><br>';
+    echo '<a class="btn btn-primary active" href="updatepersoon.php?persoon_id=' . $row['persoon_id'] . '">Update persoon</a><br><br>';
+    echo '<a class="btn btn-primary active" href="createnotitie.php?persoon_id=' . $row['persoon_id'] . '">Voeg notitie</a><br><br>';
+    echo '<a class="btn btn-primary active" href="verwijderpersoon.php?persoon_id=' . $row['persoon_id'] . '">Verwijder persoon</a><br><br>';
     }
 }
 $conn->close();
-?>
-
-<a href="createpersoon.php" class="btn btn-primary active" role="button" aria-pressed="true"> Persoon toevoegen </a>
-    
+?>    
 </body>
 </html>

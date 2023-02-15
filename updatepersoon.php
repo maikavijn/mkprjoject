@@ -32,7 +32,7 @@ if(isset($_POST['submit'])){
     $gebdatum = $_POST['gebdatum'];
     $aanmelddatum = date("j-n-Y");
     
-    $query2 = "UPDATE gebruikers SET  naam='$name', adres='$adres', postcode='$postcode', plaats='$plaats', gebdatum='$gebdatum', aanmelddatum='$aanmelddatum'  WHERE persoon_id='".$_GET['persoon_id']."' ";
+    $query2 = "UPDATE gebruikers SET naam='$name', adres='$adres', postcode='$postcode', plaats='$plaats', gebdatum='$gebdatum', aanmelddatum='$aanmelddatum'  WHERE persoon_id='".$_GET['persoon_id']."' ";
     $result = $conn->query($query2);
 }
 $conn->close();

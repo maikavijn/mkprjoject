@@ -56,6 +56,7 @@
                 </div>
                 <ul class="col-sm-9">
                     <li><a href="overzichtpers.php" class="btn btn-primary">Overzicht Personen</a></li>
+                    <li><a href="oversichtnotitie.php" class="btn btn-primary">Overzicht Notitie</a></li>
                     <li><a href="createaccount.php" class="btn btn-primary">Createaccount</a></li>
                     <li><a href="uitloggen.php" class="btn btn-primary">Uitloggen</a></li>
                 </ul>
