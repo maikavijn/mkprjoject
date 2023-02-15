@@ -26,15 +26,17 @@ $sql = "SELECT persoon_id, naam, adres, postcode, plaats, gebdatum, aanmelddatum
         <div class='col-xs-6'>
 		      <div class='table-responsive'>
             <table class='table table-hover table-inverse'>
-            <thead>"
-            <tr>"
-            <th scope='col'>ID</th>"
-            <th scope='col'>Naam</th>"
-            <th scope='col'>Adres</th>"
-            <th scope='col'>Plaats</th>"
-            <th scope='col'>Geboortedatum</th>"
-            <th scope='col'>Aanmelddatum</th>"
-            <th scope='col'>Actie</th>"
+            <thead>
+            <tr>
+            <th scope='col'>ID</th>
+            <th scope='col'>Naam</th>
+            <th scope='col'>Adres</th>
+            <th scope='col'>Plaats</th>
+            <th scope='col'>Geboortedatum</th>
+            <th scope='col'>Aanmelddatum</th>
+            <th scope='col'>Aanpassen</th>
+            <th scope='col'>Voeg notitie</th>
+            <th scope='col'>Verwijder</th>
           </tr>
             </thead>
             <tbody>
@@ -47,8 +49,8 @@ $sql = "SELECT persoon_id, naam, adres, postcode, plaats, gebdatum, aanmelddatum
     <td><?php echo $row["postcode"];?></td>
     <td><?php echo $row["plaats"];?></td>
     <td><?php echo $row["gebdatum"];?></td>
-    <td><a class="btn btn-primary active" href="updatepersoon.php?persoon_id=' . $row['persoon_id'] . '">Update persoon</a></td>
-    <td><a class="btn btn-primary active" href="createnotitie.php?persoon_id=' . $row['persoon_id'] . '">Voeg notitie</a></td>
+    <td><a class="btn btn-primary active" href="updatepersoon.php?persoon_id=<?php echo $row['persoon_id'] ?>">Update persoon</a></td>
+    <td><a class="btn btn-primary active" href="createnotitie.php?persoon_id=<?php echo $row['persoon_id'] ?>">Voeg notitie</a></td>
   	<td><a class="btn btn-primary active" href="verwijderpersoon.php?persoon_id=<?php echo $row['persoon_id'] ?>">Verwijder Persoon</a></td>
     </td>
     </tr>

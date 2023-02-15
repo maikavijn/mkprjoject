@@ -30,12 +30,12 @@ if(isset($_POST['submit']))
 <form class="p-4 needs-validation" method="post">
 
 <div class="form-group">
-  <label for="name">Titel: *</label><br>
+  <label for="name">Onderwerp: *</label><br>
   <input type="text" class="form-control" id="titel" aria-describedby="" name="titel" style="width:400px;" required><br>
 </div>
 
 <div class="form-group">
-  <label for="adres">Info: *</label><br>
+  <label for="adres">Notitie: *</label><br>
   <input type="text" class="form-control" id="info" name="info" style="width:400px;" required><br>
 </div>
 

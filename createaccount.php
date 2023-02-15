@@ -10,16 +10,16 @@ include("head.php");
 <body>
 <form class="form p-4" method="post">
 
-  <label>User Naam:</label><br>
-  <input type="text" id="usernaam" name="usernaam"><br><br>
+  <label>Gebruikersnaam*</label><br>
+  <input type="text" class="form-control" id="usernaam" aria-describedby="" name="usernaam" style="width:400px;" required><br>
 
-  <label>Wachtwoord</label><br>
-  <input type="text" id="wachtwoord" name="wachtwoord"><br><br>
+  <label>Wachtwoord*</label><br>
+  <input type="text" class="form-control" id="wachtwoord" aria-describedby="" name="wachtwoord" style="width:400px;" required><br>
 
-  <label>Naam</label><br>
-  <input type="text" id="naam" name="naam"><br><br>
+  <label>Naam*</label><br>
+  <input type="text" class="form-control" id="naam" aria-describedby="" name="naam" style="width:400px;" required><br>
 
-  <input type="submit" value="Submit" name="submit">
+  <input type="submit" class="btn btn-primary active" value="Submit" name="submit">
 </form> 
 
 <?php

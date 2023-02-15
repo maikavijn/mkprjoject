@@ -6,6 +6,8 @@
 // include("head.php");
 // }
 include("head.php");
+include("dbconnection.php");
+session_start();
 ?>
 
 <div class="container">
