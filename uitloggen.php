@@ -1,5 +1,5 @@
-<?
-session_start();
-session_destroy();
-header("location: index.php")
+<?php
+    if(isset($_POST['loguit'])){
+        header('Refresh: 1; index.php');
+    }
 ?>

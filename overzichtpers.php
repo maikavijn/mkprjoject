@@ -10,12 +10,13 @@ include("dbconnection.php");
 include("head.php");
 ?>
 <body>
+<div class="text-center">
+    <br><h1> Overzicht Personen </h1>
+</div>
 
-    <h1> Overzicht Personen </h1>
-    <div class="pb-4">
+<div class="pb-4 text-center">
       <a href="createpersoon.php" class="btn btn-secondary active" role="button" aria-pressed="true"> Persoon toevoegen </a>
     </div>
-
 
 <?php
 $sql = "SELECT persoon_id, naam, adres, postcode, plaats, gebdatum, aanmelddatum FROM gebruikers";

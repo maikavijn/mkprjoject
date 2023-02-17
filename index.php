@@ -1,6 +1,13 @@
 <?php 
 session_start();
 include 'dbconnection.php';
+
+if(isset($_POST['submit'])){
+    header('Refresh: 1; beheer.php');
+} else {
+    break;
+}
+
 if (isset($_POST['submit'])) { 
     $password = md5($_POST['wachtwoord']);
 // $check_q = mysqli_query($conn, "SELECT * FROM login WHERE naam='".addslashes($_POST['naam'])."' AND wachtwoord='".$password."' AND admin") or die (mysqli_error($conn)); 
@@ -21,7 +28,7 @@ $_SESSION['admin']['naam'] = $_POST['naam'];
 $_SESSION['admin']['wachtwoord'] = $_POST['wachtwoord'];  
 $_SESSION['admin']['admin'] = $beheer->admin;  
     
-Header("Location: beheer.php");   
+Header("Location: login.php");   
 
 exit;
 }
@@ -41,26 +48,44 @@ exit;
     </script>
     <title>Index</title>
 </head>
-
 <body>
-    <div class="container">
-        <h1> MK PROJECT </h1>
-        <div class="row">
-            <div class="col-sm-8 col-md-6 col-md-offset-4">
-                <h1 class="text-center login-title">Login voor beheer</h1>
-                <div class="account-wall">
-                    <form class="form-signin" method="POST">
-                        <input type="text" name="naam" class="form-control" placeholder="Naam" required autofocus>
-                        <input type="password" name="wachtwoord" class="form-control" placeholder="Wachtwoord" required>
-                        <button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">
-                            Login</button>
-                        <label class="checkbox pull-left">
-                        </label>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
 
+<div class="container text-center">
+    <h1> Inloggen voor beheer </h1><br><br>
+</div>
+
+<!-- <div class="row">
+    <div class="col-sm-8 col-md-6 col-md-offset-4 text-center">
+        <h1 class="login-title">Login voor beheer</h1>
+    </div>
+</div> -->
+<div class="container d-flex justify-content-center">
+<div class="col-sm-6">
+<div class="card-body p-md-5">
+    
+<form method="POST">
+<div class="container">
+<div class="row">
+<div class="col form-outline mb-4">
+    <label for="userlogin">Voor hier uw gebruikersnaam in</label><br>
+    <input type="text" name="naam" class="form-control" placeholder="Naam" style="width:530px;" required>
+</div>
+
+<div class="col form-outline mb-4">
+    <label for="adres">Voor hier uw wachtwoord in</label><br>
+    <input type="password" name="wachtwoord" class="form-control" placeholder="Wachtwoord" style="width:530px;" required>
+</div>
+
+    <button class="btn btn-primary btn-block" name="submit" type="submit">Login</button>
+    </div>
+    </div>
+</form>
+
+<br><hr style="width:550px;" size="3" color="black"></hr>
+    <div class="d-grid gap-2">
+        <label for="password"> Heeft u nog geen account? </label>
+        <a class="btn btn-outline-dark" href="createaccount.php" role="button"> Maak hier een account aan: </a>
+    </div>
+    
+</body>
 </html>

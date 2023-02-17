@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
+    <?php include("uitloggen.php"); ?>
     <title>MK Project</title>
 </head>
 
@@ -52,14 +53,15 @@
         <nav class="container">
             <div class="row">
                 <div class="col-sm-3">
-                    <a href="beheer.php" class="btn btn-primary">Beheer</a>
+                    <a href="beheer.php" class="btn btn-danger">Beheer</a>
                 </div>
                 <ul class="col-sm-9">
                     <li><a href="overzichtpers.php" class="btn btn-primary">Overzicht Personen</a></li>
                     <li><a href="oversichtnotitie.php" class="btn btn-primary">Overzicht Notitie</a></li>
-                    <li><a href="createaccount.php" class="btn btn-primary">Create account</a></li>
-                    <li><a href="uitloggen.php" class="btn btn-primary">Uitloggen</a></li>
+                    <form class="d-flex" method="POST" action=""><input type="submit" name="loguit" class="btn btn-secondary" value="Loguit">
                 </ul>
             </div>
         </nav>
     </div>
+
+</body>
