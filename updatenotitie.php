@@ -27,17 +27,27 @@ if(isset($_POST['submit'])){
 $conn->close();
 
 ?>
+
+<div class="container d-flex justify-content-center">
+<div class="col-sm-6">
+<div class="card-body p-md-5">
+<div class="container text-center">
+  <h1>Update notitie</h1>
+</div>
 <form class="p-4 needs-validation" method="post">
 
 <div class="form-group">
-  <label for="name">Titel: *</label><br>
+  <label for="name">Onderwerp*</label><br>
   <input type="text" class="form-control" id="titel" aria-describedby="" name="titel" style="width:400px;" value="<?php echo $titel; ?>" required><br>
 </div>
 
 <div class="form-group">
-  <label for="adres">Info: *</label><br>
+  <label for="adres">Notitie*</label><br>
   <input type="text" class="form-control" id="info" name="info" style="width:400px;" value="<?php echo $info; ?>" required><br>
 </div>
 
-  <input type="submit" class="btn btn-primary btn-lg active" value="Submit" name="submit">
+  <input type="submit" class="btn btn-primary btn-block" value="Submit" name="submit">
 </form> 
+</div>
+</div>
+</div>

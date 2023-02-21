@@ -10,13 +10,28 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
-    <?php include("uitloggen.php"); ?>
+    <?php include('uitloggen.php'); ?>
     <title>MK Project</title>
 </head>
-
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" href="beheer.php">Beheer</a>
+        <a class="nav-item nav-link" href="overzichtpers.php">Overzicht personen</a>
+        <a class="nav-item nav-link" href="oversichtnotitie.php">Overzicht notitie</a>
+        <a class="nav-item nav-link" href="createaccount.php">Account aanmaken</a>
+    </div>
+  </div>
+  <div class="navbar-nav ms-auto">
+        <form class="d-flex" method="POST" action="uitloggen.php">
+        <input type="submit" name="loguit" class="btn btn-outline-danger" value="Loguit">
+      </form>
+</div>
+</nav>
+
+</body>
     <!-- Navigation -->
-    <div class="header hidden-print">
+    <!-- <div class="header hidden-print">
         <style>
         .img-responsive {
             width: 80px;
@@ -58,10 +73,9 @@
                 <ul class="col-sm-9">
                     <li><a href="overzichtpers.php" class="btn btn-primary">Overzicht Personen</a></li>
                     <li><a href="oversichtnotitie.php" class="btn btn-primary">Overzicht Notitie</a></li>
+                    <li><a href="createaccount.php" class="btn btn-primary">Account aanmaken</a></li>
                     <form class="d-flex" method="POST" action=""><input type="submit" name="loguit" class="btn btn-secondary" value="Loguit">
                 </ul>
             </div>
         </nav>
-    </div>
-
-</body>
+    </div> -->

@@ -1,5 +1,9 @@
 <?php
     include 'dbconnection.php';
-    mysqli_query($conn, "DELETE FROM gebruikers WHERE persoon_id = '".$_GET['persoon_id']."'"); 
-    // header("location: overzichtpers.php"); 
+    // delete persoon
+    mysqli_query($conn, "DELETE FROM gebruikers WHERE persoon_id = '".$_GET['persoon_id']."'");
+    //delete notitie die bij persoon zat gekoppeld
+    mysqli_query($conn, "DELETE FROM persoon_notitie WHERE persoon_id = '".$_GET['persoon_id']."'");
+
+        header('Refresh: 0.7; overzichtpers.php');
 ?>

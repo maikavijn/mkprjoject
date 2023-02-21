@@ -1,39 +1,26 @@
-<?php 
-session_start();
+<?php
 include 'dbconnection.php';
+if (isset($_POST['usernaam'])) { 
+$username = $_POST['usernaam'];
+$password = $_POST['wachtwoord'];
+$query = "SELECT * FROM login WHERE usernaam='$username' AND wachtwoord='$password'";
+$result = $conn->query($query);
 
-if(isset($_POST['submit'])){
-    header('Refresh: 1; beheer.php');
+if(mysqli_num_rows($result) == 1){
+    $_SESSION['usernaam'] = $username;
+    $_SESSION['wachtwoord'] = $password;
+
+    header('location: beheer.php');
+    exit;
 } else {
-    break;
-}
-
-if (isset($_POST['submit'])) { 
-    $password = md5($_POST['wachtwoord']);
-// $check_q = mysqli_query($conn, "SELECT * FROM login WHERE naam='".addslashes($_POST['naam'])."' AND wachtwoord='".$password."' AND admin") or die (mysqli_error($conn)); 
-
-$sql = "SELECT naam='".addslashes($_POST['naam'])."', wachtwoord='".$password."', admin FROM login";
-$result = $conn->query($sql);
-
-if ($result->num_rows == 0) { 
-$alert = 1;
-} else {
-while ($beheer = mysqli_fetch_object($result)) {
-$_SESSION['admin']['login_id'] = $beheer->login_id; 
-$_SESSION['admin']['naam'] = $beheer->naam;
-$_SESSION['admin']['admin'] = $beheer->admin;
-}
-
-$_SESSION['admin']['naam'] = $_POST['naam']; 
-$_SESSION['admin']['wachtwoord'] = $_POST['wachtwoord'];  
-$_SESSION['admin']['admin'] = $beheer->admin;  
-    
-Header("Location: login.php");   
-
-exit;
-}
-} 
+    ?>
+    <div class="alert alert-danger position-absolute top-0 start-50 translate-middle-x" style="width:600px" role="alert">
+        Onjuiste gebruikersnaam en/of wachtwoord - Probeer het opnieuw!
+    </div><br><br>
+    <?php
+}}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,42 +37,31 @@ exit;
 </head>
 <body>
 
+<div class="container d-flex justify-content-center">
+<div class="col-sm-6">
+<div class="card-body p-md-3">
+
 <div class="container text-center">
     <h1> Inloggen voor beheer </h1><br><br>
 </div>
-
-<!-- <div class="row">
-    <div class="col-sm-8 col-md-6 col-md-offset-4 text-center">
-        <h1 class="login-title">Login voor beheer</h1>
-    </div>
-</div> -->
-<div class="container d-flex justify-content-center">
-<div class="col-sm-6">
-<div class="card-body p-md-5">
     
-<form method="POST">
+<form class="form-signin" method="POST">
 <div class="container">
 <div class="row">
 <div class="col form-outline mb-4">
     <label for="userlogin">Voor hier uw gebruikersnaam in</label><br>
-    <input type="text" name="naam" class="form-control" placeholder="Naam" style="width:530px;" required>
+    <input type="text" name="usernaam" class="form-control" placeholder="Naam" style="width:595px;" required>
 </div>
 
 <div class="col form-outline mb-4">
     <label for="adres">Voor hier uw wachtwoord in</label><br>
-    <input type="password" name="wachtwoord" class="form-control" placeholder="Wachtwoord" style="width:530px;" required>
+    <input type="password" name="wachtwoord" class="form-control" placeholder="Wachtwoord" style="width:595px;" required>
 </div>
 
-    <button class="btn btn-primary btn-block" name="submit" type="submit">Login</button>
+    <button class="btn btn-primary btn-block" type="submit">Login</button>
     </div>
     </div>
 </form>
-
-<br><hr style="width:550px;" size="3" color="black"></hr>
-    <div class="d-grid gap-2">
-        <label for="password"> Heeft u nog geen account? </label>
-        <a class="btn btn-outline-dark" href="createaccount.php" role="button"> Maak hier een account aan: </a>
-    </div>
     
 </body>
 </html>
