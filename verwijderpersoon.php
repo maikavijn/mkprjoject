@@ -5,5 +5,5 @@
     //delete notitie die bij persoon zat gekoppeld
     mysqli_query($conn, "DELETE FROM persoon_notitie WHERE persoon_id = '".$_GET['persoon_id']."'");
 
-        header('Refresh: 0.7; overzichtpers.php');
+        header('location: overzichtpers.php');
 ?>

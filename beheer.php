@@ -19,17 +19,62 @@
   <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <p class="text-center" style="font-size: 25pt; margin-top: 10px;">Welkom terug <?php echo $_SESSION['usernaam'];?></p> 
+      <p class="text-center" style="font-size: 25pt; margin-top: 10px;">Welkom terug <?php echo $_SESSION['admin']['usernaam'];?></p> 
     </div>
   </div>
+
+  <div class="d-flex justify-content-center">
+  <form class="p-4 needs-validation" method="post">
+
+<div class="form-group">
+  <label for="name">Gebruikersnaam*</label>
+  <input type="text" class="form-control" id="username" aria-describedby="" name="username" style="width:400px;" required><br>
+</div>
+
+<div class="form-group">
+  <label for="adres">Wachtwoord*</label>
+  <input type="text" class="form-control" id="password" name="password" style="width:400px;" required><br>
+</div>
+
+<div class="form-group">
+  <label for="postcode">Naam*</label>
+  <input type="text" class="form-control" id="name" name="name" style="width:400px;" required><br><br>
+</div>
+
+  <input type="submit" class="btn btn-primary active" value="Submit" name="submit">
+</form>
+</div>
 
   <hr style="width: 100%" size="3" color="white"></hr>
   <div class="d-grid gap-2">
     <a class="btn btn-secondary" href="createaccount.php" role="button"> Maak een account aan </a>
   </div>
-  <!-- <div class="d-grid gap-2">
-    <a class="btn btn-danger" href="beheer.php" role="button"> Ga terug </a>
-  </div> -->
   
 </body>
 </html>
+<?php
+$query = "SELECT * FROM login WHERE login_id='".$_GET['login_id']."'";
+$result = $conn->query($query);
+
+while ($row = mysqli_fetch_array($result)) {
+$login_id = $row['login_id'];
+$username = $row['usernaam'];
+$password = $row['wachtwoord'];
+$name = $row['naam'];
+
+exit;
+}
+
+if(isset($_POST['submit'])){
+  $login_id = $row['login_id'];
+  $username = $_POST['usernaam'];
+  $password = $_POST['wachtwoord'];
+  $name = $_POST['naam'];
+  
+  $query2 = "UPDATE login SET naam='$name', login_id='$login_id', usernaam='$username' WHERE login_id='".$_GET['login_id']."' ";
+  $result = $conn->query($query2);
+
+exit;
+}
+$conn->close();
+?>

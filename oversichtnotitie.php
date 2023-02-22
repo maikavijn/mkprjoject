@@ -38,7 +38,7 @@ $result = mysqli_query($conn,"SELECT * FROM persoon_notitie");
     </tr>
   <?php  }
   } else {
-    echo "Geen notitie gevonden";
+    echo "<em>*Geen notitie gevonden*</em>";
   }?>
 </tbody>
 </table>

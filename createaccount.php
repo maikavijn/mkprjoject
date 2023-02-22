@@ -1,11 +1,3 @@
-<?php
-// include 'dbconnection.php';
-// if (!$_SESSION['admin']['naam'] && !$_SESSION['admin']['wachtwoord']) {
-// header("location: index.php");
-// } else {
-// include("head.php");
-// }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

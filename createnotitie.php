@@ -19,9 +19,10 @@ if(isset($_POST['submit']))
 
 	 if (mysqli_query($conn, $sql)) {
 		echo "Notitie toegevoegd!";
+		Header('Refresh: 0.3; oversichtnotitie.php');
 	 } else {
-		echo "Error: " . $sql . "
-" . mysqli_error($conn);
+		echo "Error: " . $sql . " " . mysqli_error($conn);
+		Header('Refresh: 0.3; overzichtpers.php');
 	 }
 	 mysqli_close($conn);
 }

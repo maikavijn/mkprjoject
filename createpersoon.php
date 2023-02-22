@@ -35,8 +35,8 @@
 </div>
 
 <div class="form-group">
-  <label for="gebdatum">Geboorte Datum: *</label><br>
-  <input type="text" class="form-control" id="gebdatum" name="gebdatum" placeholder="00-00-0000" style="width:400px;" required><br>
+  <label for="gebdatum">Geboortedatum: *</label><br>
+  <input type="number" class="form-control" id="gebdatum" name="gebdatum" placeholder="00-00-0000" style="width:400px;" required><br>
 </div>
 
   <input type="submit" class="btn btn-primary btn-lg active" value="Submit" name="submit">
@@ -60,6 +60,7 @@ $query->bind_param('ssssss',$name,$adres,$postcode,$plaats,$gebdatum,$aanmelddat
 $query->execute();
 $query->store_result();
 echo "Persoon is toegevoegd";
+Header('Refresh: 0.3; overzichtpers.php');
 }
 ?>
 

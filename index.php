@@ -58,7 +58,7 @@ if(mysqli_num_rows($result) == 1){
                     </div>
 
                     <div class="pt-1 mb-4">
-                    <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                    <button class="btn btn-primary btn btn-block" type="submit">Login</button>
                     </div>
                     </form>
                 </div>
@@ -66,15 +66,6 @@ if(mysqli_num_rows($result) == 1){
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

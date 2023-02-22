@@ -23,6 +23,9 @@ if(isset($_POST['submit'])){
     
     $query2 = "UPDATE persoon_notitie SET titel='$titel', info='$info', datum='$datum'  WHERE persoon_id='".$_GET['persoon_id']."' ";
     $result = $conn->query($query2);
+
+    echo "<h3>Notitie geupdate!</h3>";
+    Header('Refresh: 0.8; oversichtnotitie.php');
 }
 $conn->close();
 

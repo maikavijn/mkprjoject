@@ -1,11 +1,5 @@
 <?php
 include("dbconnection.php");
-// include 'dbconnection.php';
-// if (!$_SESSION['admin']['naam'] && !$_SESSION['admin']['wachtwoord']) {
-// header("location: index.php");
-// } else {
-// include("head.php");
-// }
 include("head.php");
 ?>
 <body>
@@ -32,6 +26,7 @@ $sql = "SELECT persoon_id, naam, adres, postcode, plaats, gebdatum, aanmelddatum
             <th scope='col'>Naam</th>
             <th scope='col'>Adres</th>
             <th scope='col'>Plaats</th>
+            <th scope='col'>Postcode</th>
             <th scope='col'>Geboortedatum</th>
             <th scope='col'>Aanmelddatum</th>
             <th scope='col'>Aanpassen</th>
@@ -46,9 +41,10 @@ $sql = "SELECT persoon_id, naam, adres, postcode, plaats, gebdatum, aanmelddatum
     <td><?php echo $row["persoon_id"];?></td>
     <td><?php echo $row["naam"];?></td>
     <td><?php echo $row["adres"];?></td>
-    <td><?php echo $row["postcode"];?></td>
     <td><?php echo $row["plaats"];?></td>
+    <td><?php echo $row["postcode"];?></td>
     <td><?php echo $row["gebdatum"];?></td>
+    <td><?php echo $row["aanmelddatum"];?></td>
     <td><a class="btn btn-primary active" name="btnupdate" href="updatepersoon.php?persoon_id=<?php echo $row['persoon_id'] ?>">Update persoon</a></td>
     <td><a class="btn btn-primary active" name="btnadd" href="createnotitie.php?persoon_id=<?php echo $row['persoon_id'] ?>">Voeg notitie</a></td>
   	<td><a class="btn btn-primary active" name="btndelete" href="verwijderpersoon.php?persoon_id=<?php echo $row['persoon_id'] ?>">Verwijder Persoon</a></td>
@@ -56,7 +52,7 @@ $sql = "SELECT persoon_id, naam, adres, postcode, plaats, gebdatum, aanmelddatum
     </tr>
   <?php  }
   } else {
-    echo "Geen personen gevonden";
+    echo "<em>*Geen personen gevonden*</em>";
   }?>
 </tbody>
 </table>   
