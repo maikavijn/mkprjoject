@@ -37,31 +37,44 @@ if(mysqli_num_rows($result) == 1){
 </head>
 <body>
 
-<div class="container d-flex justify-content-center">
-<div class="col-sm-6">
-<div class="card-body p-md-3">
+<section class="vh-100">
+<div class="container py-5">
+    <div class="row d-flex justify-content-center align-tiems-center h-100">
+        <div class="col col-xl-10">
+            <div class="shadow-lg p-3 mb-5 bg-body rounded" style="border-radius:1rem;">
 
-<div class="container text-center">
-    <h1> Inloggen voor beheer </h1><br><br>
-</div>
-    
-<form class="form-signin" method="POST">
-<div class="container">
-<div class="row">
-<div class="col form-outline mb-4">
-    <label for="userlogin">Voor hier uw gebruikersnaam in</label><br>
-    <input type="text" name="usernaam" class="form-control" placeholder="Naam" style="width:595px;" required>
-</div>
+                <div class="card-body p-4 p-lg-5 text-black">
+                    <form class="form" method="POST">
+                    <h3 class="fw-normal mb-3 pb-3"> Inloggen voor beheer </h3>
 
-<div class="col form-outline mb-4">
-    <label for="adres">Voor hier uw wachtwoord in</label><br>
-    <input type="password" name="wachtwoord" class="form-control" placeholder="Wachtwoord" style="width:595px;" required>
-</div>
+                    <div class="form-outline mb-4">
+                    <input type="text" name="usernaam" class="form-control form-control-lg" placeholder="Naam" required>
+                    <label class="form-label" for="userlogin"> Voer hier uw gebruikersnaam in </label>
+                    </div>
 
-    <button class="btn btn-primary btn-block" type="submit">Login</button>
+                    <div class="form-outline mb-4">
+                    <input type="password" name="wachtwoord" class="form-control form-control-lg" placeholder="Wachtwoord" required>
+                    <label class="form-label" for="adres"> Voer hier uw wachtwoord in </label>
+                    </div>
+
+                    <div class="pt-1 mb-4">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
-</form>
-    
+</div>
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

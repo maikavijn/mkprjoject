@@ -41,7 +41,7 @@
 <div class="col form-outline mb-4">
 <label>Wachtwoord*</label><br>
   <input type="password" class="form-control" id="wachtwoord" aria-describedby="" name="wachtwoord" style="width:530px;" required>
-  <input type="checkbox" onclick="functie()">Show password
+  <input type="checkbox" onclick="toggle()"><strong>Show password</strong>
 </div>
 
 <div class="col form-outline mb-4">
@@ -74,5 +74,16 @@ $query->store_result();
 
 }
 ?>
+<script>
+function toggle() {
+            var temp = document.getElementById("wachtwoord");
+            if (temp.type === "password") {
+                temp.type = "text";
+            }
+            else {
+                temp.type = "password";
+            }
+        }
+</script>
 </body>
 </html>

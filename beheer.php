@@ -25,8 +25,11 @@
 
   <hr style="width: 100%" size="3" color="white"></hr>
   <div class="d-grid gap-2">
-    <a class="btn btn-danger" href="beheer.php" role="button"> Ga terug </a>
+    <a class="btn btn-secondary" href="createaccount.php" role="button"> Maak een account aan </a>
   </div>
+  <!-- <div class="d-grid gap-2">
+    <a class="btn btn-danger" href="beheer.php" role="button"> Ga terug </a>
+  </div> -->
   
 </body>
 </html>

@@ -19,7 +19,6 @@
         <a class="nav-item nav-link" href="beheer.php">Beheer</a>
         <a class="nav-item nav-link" href="overzichtpers.php">Overzicht personen</a>
         <a class="nav-item nav-link" href="oversichtnotitie.php">Overzicht notitie</a>
-        <a class="nav-item nav-link" href="createaccount.php">Account aanmaken</a>
     </div>
   </div>
   <div class="navbar-nav ms-auto">
@@ -30,52 +29,3 @@
 </nav>
 
 </body>
-    <!-- Navigation -->
-    <!-- <div class="header hidden-print">
-        <style>
-        .img-responsive {
-            width: 80px;
-        }
-
-        .logo {
-            display: flex;
-            justify-content: flex-start;
-            margin-top: 4px;
-        }
-
-        nav ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        nav .row {
-            display: flex;
-        }
-
-        nav .col-sm-3 {
-            display: flex;
-            justify-content: left;
-        }
-
-        nav {
-            padding-top: 5px;
-        }
-        </style>
-        <nav class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <a href="beheer.php" class="btn btn-danger">Beheer</a>
-                </div>
-                <ul class="col-sm-9">
-                    <li><a href="overzichtpers.php" class="btn btn-primary">Overzicht Personen</a></li>
-                    <li><a href="oversichtnotitie.php" class="btn btn-primary">Overzicht Notitie</a></li>
-                    <li><a href="createaccount.php" class="btn btn-primary">Account aanmaken</a></li>
-                    <form class="d-flex" method="POST" action=""><input type="submit" name="loguit" class="btn btn-secondary" value="Loguit">
-                </ul>
-            </div>
-        </nav>
-    </div> -->
