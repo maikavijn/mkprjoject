@@ -19,7 +19,7 @@
   <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <p class="text-center" style="font-size: 25pt; margin-top: 10px;">Welkom terug <?php echo $_SESSION['admin']['usernaam'];?></p> 
+      <p class="text-center" style="font-size: 25pt; margin-top: 10px;">Welkom terug <?php echo $_SESSION['usernaam'];?>!</p> 
     </div>
   </div>
 
