@@ -1,24 +1,55 @@
 <?php
 include 'dbconnection.php';
+// if (isset($_POST['usernaam'])) { 
+// $username = $_POST['usernaam'];
+// $password = $_POST['wachtwoord'];
+// $query = "SELECT * FROM login WHERE usernaam='$username' AND wachtwoord='$password' AND admin";
+// $result = $conn->query($query);
+
+// if(mysqli_num_rows($result) == 1){
+//     $_SESSION["usernaam"] = $username;
+//     $_SESSION["wachtwoord"] = $password;
+
+//     header('location: beheer.php');
+//     exit;
+// } else {
+
+// }}
+
 if (isset($_POST['usernaam'])) { 
-$username = $_POST['usernaam'];
-$password = $_POST['wachtwoord'];
-$query = "SELECT * FROM login WHERE usernaam='$username' AND wachtwoord='$password'";
-$result = $conn->query($query);
+    $username = $_POST['usernaam'];
+    $password = $_POST['wachtwoord'];
+    $hex_password = bin2hex($password);
+    echo $hex_password;
+    
+    $query = "SELECT * FROM login WHERE usernaam=? AND wachtwoord=UNHEX(?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ss", $username, $hex_password);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-if(mysqli_num_rows($result) == 1){
-    $_SESSION['usernaam'] = $username;
-    $_SESSION['wachtwoord'] = $password;
-
-    header('location: beheer.php');
-    exit;
-} else {
-    ?>
-    <div class="alert alert-danger position-absolute top-0 start-50 translate-middle-x" style="width:600px" role="alert">
-        Onjuiste gebruikersnaam en/of wachtwoord - Probeer het opnieuw!
-    </div><br><br>
-    <?php
-}}
+    
+    if ($row = $result->fetch_assoc()) {
+        if ($row['admin'] == 1) {
+            $_SESSION["usernaam"] = $username;
+            $_SESSION["wachtwoord"] = $password;
+            header('location: beheer.php');
+            exit;
+        } else {
+            ?>
+            <div class="alert alert-danger position-absolute top-0 start-50 translate-middle-x" style="width:600px" role="alert">
+                U heeft geen beheerdersrechten - Probeer het opnieuw!
+            </div><br><br>
+            <?php
+        }
+    } else {
+        ?>
+        <div class="alert alert-danger position-absolute top-0 start-50 translate-middle-x" style="width:600px" role="alert">
+            Onjuiste gebruikersnaam en/of wachtwoord - Probeer het opnieuw!
+        </div><br><br>
+        <?php
+    }
+}
 ?>
 
 <!DOCTYPE html>

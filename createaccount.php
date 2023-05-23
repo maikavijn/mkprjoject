@@ -41,7 +41,7 @@
   <input type="text" class="form-control" id="naam" aria-describedby="" name="naam" style="width:530px;" required>
 </div>
 
-    <button class="btn btn-primary btn-block" type="submit">Aanmaken</button>
+    <button class="btn btn-primary btn-block" name="submit" type="submit">Aanmaken</button>
     </div>
     </div>
 </form>
@@ -56,7 +56,7 @@
 if(isset($_POST['submit'])){
 
 $usernaam=$_POST['usernaam'];
-$wachtwoord=$_POST['wachtwoord'];
+$wachtwoord=bin2hex($_POST['wachtwoord']);
 $naam=$_POST['naam'];
 
 $query = $conn->prepare("INSERT INTO login (usernaam, wachtwoord, naam) VALUES (?,?,?)");
